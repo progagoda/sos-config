@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: api-gateway
+  cloud.gateway:
+    discovery:
+      locator:
+        enabled: true
+        lowerCaseServiceId: true
+    routes:
+      - id: createStarship
+        uri: lb://starship-service
+        predicates:
+          - Path=/api/v1/starship/create/{id}/{name}
+      - id: unloadStarship
+        uri: lb://starship-service
+        predicates:
+          - Path=/api/v1/starship/{starship-id}/unload/{space-marine-id}
+      - id: hello
+        uri: lb://starship-service
+        predicates:
+          - Path=/hello
