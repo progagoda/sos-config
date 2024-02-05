@@ -27,3 +27,7 @@ spring:
         uri: lb://starship-service
         predicates:
           - Path=/hello
+ribbon:
+  eureka:
+    enabled: true
+  OkToRetryOnAllOperations: true
