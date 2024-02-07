@@ -9,11 +9,7 @@ eureka:
 spring:
   application:
     name: api-gateway
-  cloud:
-   consul:
-     host: localhost
-      port: 8500
-   gateway:
+  cloud.gateway:
     discovery:
       locator:
         enabled: true
