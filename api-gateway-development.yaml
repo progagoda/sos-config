@@ -11,7 +11,16 @@ spring:
     name: api-gateway
   cloud.gateway:
     globalcors:
-        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000/"
+            allowedHeaders:
+              - content-type
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - OPTIONS
     discovery:
       locator:
         enabled: true
