@@ -27,7 +27,7 @@ spring:
       - id: unloadStarship
         uri: lb://starship-service
         predicates:
-          - Path=/api/v1/starship/{starship-id}/unload/{space-marine-id}
+          - Path=/api/v1/starships/{starship-id}/unload/{space-marine-id}
       - id: hello
         uri: lb://starship-service
         predicates:
