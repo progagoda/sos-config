@@ -21,15 +21,15 @@ spring:
         lowerCaseServiceId: true
     routes:
       - id: createStarship
-        uri: lb:https://localhost:5555
+        uri: https://starship-service
         predicates:
           - Path=/api/v1/starships/create/{id}/{name}
       - id: unloadStarship
-        uri: lb:https://localhost:5555
+        uri: https://starship-service
         predicates:
           - Path=/api/v1/starships/{starship-id}/unload/{space-marine-id}
       - id: hello
-        uri: lb:https://localhost:5555
+        uri: https://starship-service
         predicates:
           - Path=/hello
 ribbon:
