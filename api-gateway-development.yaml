@@ -19,19 +19,14 @@ spring:
       locator:
         enabled: true
         lowerCaseServiceId: true
-    routes:
-      - id: createStarship
-        uri: https://starship-service
-        predicates:
-          - Path=/api/v1/starships/create/{id}/{name}
-      - id: unloadStarship
-        uri: https://starship-service
-        predicates:
-          - Path=/api/v1/starships/{starship-id}/unload/{space-marine-id}
-      - id: hello
-        uri: https://starship-service
-        predicates:
-          - Path=/hello
+zuul:
+  routes:
+    agency-service:
+      path: /starship-service/**
+      serviceId: starship-service
+  okhttp:
+    enabled: true
+  ignoredServices: '*'
 ribbon:
   eureka:
     enabled: true
