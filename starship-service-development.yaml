@@ -2,8 +2,12 @@ spring:
   application:
     name: starship-service
 server:
-  port: 0
+  port: 36795
 eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    homePageUrl: 'https://${eureka.instance.hostName}:${server.port}/'
   client:
     serviceUrl:
       defaultZone: http://localhost:8760/eureka
